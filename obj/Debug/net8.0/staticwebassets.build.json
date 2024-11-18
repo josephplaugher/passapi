@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "kQcLUbZVcIyBi/b6JQzLbW9CDj7lWoHpmhnVgUtJPAI=",
+  "Source": "passapi",
+  "BasePath": "_content/passapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
