@@ -13,6 +13,7 @@
         "packagesPath": "/home/joe/.nuget/packages/",
         "outputPath": "/home/joe/Dev/Clients/Hewitt/passapi/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/home/joe/.nuget/NuGet/NuGet.Config"
         ],
@@ -43,6 +44,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[4.5.3.3, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
