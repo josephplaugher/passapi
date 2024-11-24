@@ -13,7 +13,6 @@
         "packagesPath": "/home/joe/.nuget/packages/",
         "outputPath": "/home/joe/Dev/Clients/Hewitt/passapi/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/home/joe/.nuget/NuGet/NuGet.Config"
         ],

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using passapi.data;
@@ -11,9 +12,11 @@ using passapi.data;
 namespace passapi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241123181941_updateIdTypesToDouble")]
+    partial class updateIdTypesToDouble
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,17 +34,14 @@ namespace passapi.Migrations
                     b.Property<double>("CustomerId")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("FifthGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("FifthGoalRank")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("FirstGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("FirstGoalRank")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("FourthGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("FourthGoalRank")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Held")
                         .HasColumnType("text");
@@ -52,9 +52,8 @@ namespace passapi.Migrations
                     b.Property<int>("NationalPercentile")
                         .HasColumnType("integer");
 
-                    b.Property<string>("OverallRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("OverallRank")
+                        .HasColumnType("integer");
 
                     b.Property<int>("PercentCorrect")
                         .HasColumnType("integer");
@@ -68,31 +67,26 @@ namespace passapi.Migrations
                     b.Property<int>("RitScore")
                         .HasColumnType("integer");
 
-                    b.Property<string>("SecondGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("SecondGoalRank")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("SeventhGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("SeventhGoalRank")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("SixthGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("SixthGoalRank")
+                        .HasColumnType("integer");
 
                     b.Property<double>("StudentId")
                         .HasColumnType("double precision");
 
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Subject")
+                        .HasColumnType("integer");
 
-                    b.Property<float>("TestId")
-                        .HasColumnType("real");
+                    b.Property<double>("TestId")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("ThirdGoalRank")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("ThirdGoalRank")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

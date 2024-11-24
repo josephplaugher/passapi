@@ -115,6 +115,7 @@
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/passapi.runtimeconfig.json
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/passapi.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/passapi.pdb
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/EPPlus.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Humanizer.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Microsoft.CodeAnalysis.dll
@@ -133,6 +134,7 @@
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Mono.TextTemplating.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Npgsql.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
@@ -145,6 +147,8 @@
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/System.Composition.Hosting.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/System.Composition.Runtime.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/System.Composition.TypedParts.dll
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/System.Drawing.Common.dll
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/System.Xml.XPath.XmlDocument.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.resources.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/de/Microsoft.CodeAnalysis.resources.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/es/Microsoft.CodeAnalysis.resources.dll
@@ -197,6 +201,9 @@
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/home/joe/Dev/Clients/Hewitt/passapi/bin/Debug/net8.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.csproj.AssemblyReference.cache
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.GeneratedMSBuildEditorConfig.editorconfig
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.AssemblyInfoInputs.cache
@@ -204,6 +211,7 @@
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.csproj.CoreCompileInputs.cache
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.MvcApplicationPartsAssemblyInfo.cs
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.MvcApplicationPartsAssemblyInfo.cache
+/home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/passapi.sourcelink.json
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/staticwebassets.build.json
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/staticwebassets.development.json
 /home/joe/Dev/Clients/Hewitt/passapi/obj/Debug/net8.0/staticwebassets/msbuild.passapi.Microsoft.AspNetCore.StaticWebAssets.props

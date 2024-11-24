@@ -1,0 +1,40 @@
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "firefox",
+//             "request": "launch",
+//             "name": "Launch Firefox against localhost",
+//             "url": "http://localhost:5152/swagger", // Ensure this points to your API or Swagger
+//             "applicationUrl": "https://localhost:5152;http://localhost:5152",
+//             "webRoot": "${workspaceFolder}"
+//         }
+//     ]
+// }
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": ".NET Core Launch (web)",
+        "type": "coreclr",
+        "request": "launch",
+        // "preLaunchTask": "build",
+        "program": "${workspaceFolder}/bin/Debug/net8.0/passapi.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+        },
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "requireExactSource": false
+      }
+    ]
+  }
+  

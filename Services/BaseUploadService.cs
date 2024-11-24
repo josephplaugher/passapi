@@ -3,21 +3,23 @@ using System.IO;
 using System.Threading.Tasks;
 using OfficeOpenXml;
 using System.Collections.Generic;
+using passapi.Interfaces;
+using passapi.data;
+using passapi.models;
 
-namespace Soar.Services;
+namespace passapi.Services;
 
 public class BaseUploadService : IBaseUploadService
 {
-    protected readonly SoarContext _context;
+    protected readonly AppDbContext _context;
     protected DataUploadResponse response = new();
     protected readonly Dictionary<string, int> excelHeaders = [];
     protected int rowCount = 0;
     protected ExcelPackage package;
     protected ExcelWorksheet worksheet;
     protected int columnCount = 0;
-    protected Contact contact;
 
-    public BaseUploadService(SoarContext context)
+    public BaseUploadService(AppDbContext context)
     {
         _context = context;
     }
@@ -32,6 +34,10 @@ public class BaseUploadService : IBaseUploadService
         package = new(stream);
         worksheet = package.Workbook.Worksheets[0];
 
+        if (worksheet == null)
+        {
+            throw new Exception("failed to create worksheet");
+        }
         rowCount = worksheet.Dimension.Rows;
         columnCount = worksheet.Dimension.Columns;
         response.TotalRowsProcessed = rowCount - 1; //minus 1 accounts for header row
@@ -48,6 +54,48 @@ public class BaseUploadService : IBaseUploadService
     public string GetStringColumnValue(int row, string columnName)
     {
         return excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber) ? worksheet.Cells[row, columnNumber].Value?.ToString() : "";
+    }
+
+    public Guid GetGuidColumnValue(int row, string columnName)
+    {
+        excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber);
+        return (Guid)worksheet.Cells[row, columnNumber].Value;
+    }
+
+    public double GetDoubleColumnValue(int row, string columnName)
+    {
+        excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber);
+        return (double)worksheet.Cells[row, columnNumber].Value;
+    }
+
+    // public float GetFloatColumnValue(int row, string columnName)
+    // {
+    //     excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber);
+    //     return (float)worksheet.Cells[row, columnNumber].Value;
+    // }
+
+    public int GetIntColumnValue(int row, string columnName)
+    {
+        excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber);
+
+        // Get the value from the cell
+        object cellValue = worksheet.Cells[row, columnNumber].Value;
+
+        // Try to convert it to an integer
+        if (cellValue is double doubleValue)
+        {
+            return (int)doubleValue; // Explicit cast from double to int
+        }
+        else if (cellValue is int intValue)
+        {
+            return intValue; // Already an int
+        }
+        else if (int.TryParse(cellValue?.ToString(), out int parsedInt))
+        {
+            return parsedInt; // Parse from string if needed
+        }
+
+        throw new InvalidCastException($"Unable to convert value in row {row}, column {columnName} to an int.");
     }
 
     public DateTime GetDateColumnValue(int row, string columnName)

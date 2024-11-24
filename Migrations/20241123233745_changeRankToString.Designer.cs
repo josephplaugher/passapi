@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using passapi.data;
@@ -11,9 +12,11 @@ using passapi.data;
 namespace passapi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241123233745_changeRankToString")]
+    partial class changeRankToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,8 +90,8 @@ namespace passapi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<float>("TestId")
-                        .HasColumnType("real");
+                    b.Property<double>("TestId")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("ThirdGoalRank")
                         .IsRequired()
