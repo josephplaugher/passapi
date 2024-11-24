@@ -21,10 +21,10 @@ public class TestResultController : ControllerBase
 
     // GET: api/TestResults
     [HttpGet]
-    public IActionResult GetTestResults()
+    public async Task<List<TestResult>> GetTestResults()
     {
-        // return await _context.TestResults.ToListAsync();
-        return Ok();
+        return await _context.TestResults.ToListAsync();
+        // return Ok();
     }
 
     // GET: api/TestResults/{id}

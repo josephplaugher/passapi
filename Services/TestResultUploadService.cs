@@ -108,6 +108,7 @@ public class TestResultUploadService : BaseUploadService, ITestResultUploadServi
         testResult.StudentId = GetIntColumnValue(row, nameof(TestResult.StudentId));
         testResult.TestId = GetIntColumnValue(row, nameof(TestResult.TestId));
         testResult.Subject = GetStringColumnValue(row, nameof(TestResult.Subject));
+        testResult.TestLevel = GetIntColumnValue(row, nameof(TestResult.TestLevel));
         testResult.RawScore = GetIntColumnValue(row, nameof(TestResult.RawScore));
         testResult.PercentCorrect = GetIntColumnValue(row, nameof(TestResult.PercentCorrect));
         testResult.RitScore = GetIntColumnValue(row, nameof(TestResult.RitScore));

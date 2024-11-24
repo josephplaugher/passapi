@@ -10,6 +10,7 @@ public class TestResult
     public int StudentId { get; set; }
     public int TestId { get; set; }
     public string Subject { get; set; } = string.Empty;
+    public int TestLevel { get; set; }
     public int RawScore { get; set; }
     public int PercentCorrect { get; set; }
     public int RitScore { get; set; }
