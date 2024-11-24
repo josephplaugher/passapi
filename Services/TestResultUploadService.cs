@@ -13,7 +13,7 @@ namespace passapi.Services;
 public class TestResultUploadService : BaseUploadService, ITestResultUploadService
 {
     // private readonly AppDbContext context;
-    private List<TestResult> testResults;
+    private List<TestResult> testResults = new List<TestResult>();
 
     public TestResultUploadService(AppDbContext context) : base(context)
     {

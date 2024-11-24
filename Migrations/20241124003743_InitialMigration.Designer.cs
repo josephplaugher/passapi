@@ -12,8 +12,8 @@ using passapi.data;
 namespace passapi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241123234111_changeTestidToFloat")]
-    partial class changeTestidToFloat
+    [Migration("20241124003743_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,8 +31,8 @@ namespace passapi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<double>("CustomerId")
-                        .HasColumnType("double precision");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("FifthGoalRank")
                         .IsRequired()
@@ -83,15 +83,15 @@ namespace passapi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("StudentId")
-                        .HasColumnType("double precision");
+                    b.Property<int>("StudentId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Subject")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<float>("TestId")
-                        .HasColumnType("real");
+                    b.Property<int>("TestId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ThirdGoalRank")
                         .IsRequired()

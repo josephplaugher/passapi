@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("passapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd6c52fad362b0b8b765b36116539340ea9307b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5a7fd8a2adaea14581f0ceaf62844d104b7da40")]
 [assembly: System.Reflection.AssemblyProductAttribute("passapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("passapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

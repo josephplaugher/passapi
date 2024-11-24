@@ -28,8 +28,8 @@ namespace passapi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<double>("CustomerId")
-                        .HasColumnType("double precision");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("FifthGoalRank")
                         .IsRequired()
@@ -80,15 +80,15 @@ namespace passapi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("StudentId")
-                        .HasColumnType("double precision");
+                    b.Property<int>("StudentId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Subject")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<float>("TestId")
-                        .HasColumnType("real");
+                    b.Property<int>("TestId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ThirdGoalRank")
                         .IsRequired()
