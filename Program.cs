@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using passapi.data;
 using passapi.Interfaces;
 using passapi.Services;
+using Microsoft.AspNetCore.HttpOverrides;
 
 const string DevCorsPolicy = "DevCorsPolicy";
 
@@ -13,14 +14,14 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IBaseUploadService, BaseUploadService>();
 builder.Services.AddScoped<ITestResultUploadService, TestResultUploadService>();
-builder.Services.AddCors(options => 
+builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: DevCorsPolicy,
-    policy => 
+    policy =>
     {
-        policy.AllowAnyHeader();
-        policy.AllowAnyOrigin();
-        policy.AllowAnyMethod();
+        policy.AllowAnyHeader()
+        .AllowAnyOrigin()
+        .AllowAnyMethod();
     });
 });
 builder.Services.AddControllers();
@@ -31,16 +32,25 @@ WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseRouting();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseCors(DevCorsPolicy);
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+else
+{
+    app.UseForwardedHeaders(new ForwardedHeadersOptions
+    {
+        ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+    });
+}
+
 app.UseEndpoints(endpoints =>
 {
     endpoints?.MapControllers();
 });
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
 app.Run();

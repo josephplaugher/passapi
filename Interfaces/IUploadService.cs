@@ -16,6 +16,4 @@ public interface IBaseUploadService
 public interface ITestResultUploadService
 {
     Task<JsonResult> Upload(IFormFile file);
-    public TEnum GetSubjectColumnValue<TEnum>(int row, string columnName) where TEnum : struct, Enum;
-    public Rank GetRankColumnValue(int row, string columnName);
 }

@@ -31,7 +31,7 @@ public class TestResultUploadService : BaseUploadService, ITestResultUploadServi
             await CreateWorksheet(file);
 
             // loop through each row in the excel file and do the stuff
-            for (int row = 2; row < rowCount; row++)
+            for (int row = 2; (row - 1) < rowCount; row++)
             {
                 bool rowNotEmpty = CheckForResultOnRow(row);
                 if (rowNotEmpty == true)
@@ -39,6 +39,7 @@ public class TestResultUploadService : BaseUploadService, ITestResultUploadServi
                     TestResult thisResult = AddResult(row);
                     
                     testResults.Add(thisResult);
+                    response.SuccessfulRows++;
                 }
             }
 
@@ -53,34 +54,27 @@ public class TestResultUploadService : BaseUploadService, ITestResultUploadServi
         return new JsonResult(response);
     }
 
-    public TEnum GetSubjectColumnValue<TEnum>(int row, string columnName) where TEnum : struct, Enum
-    {
-        // excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber);
-        // var cell = worksheet.Cells[row, columnNumber];
-        // string subject = cell?.Value.ToString() ?? string.Empty;
-        // Console.WriteLine("", subject);
-        // // Subject subject = (Subject)Enum.Parse(typeof(Subject), valueFromColumn, true);
-        // return Subject.L;
-        string t = "";
-        if (excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber))
-        {
-            var cellValue = worksheet.Cells[row, columnNumber].Value?.ToString();
-            if (string.IsNullOrEmpty(cellValue))
-            {
-                throw new ArgumentException($"The cell at row {row} and column {columnName} is empty");
-            }
+    // public TEnum GetSubjectColumnValue<TEnum>(int row, string columnName) where TEnum : struct, Enum
+    // {
+    //     if (excelHeaders.TryGetValue(columnName.Replace(" ", "").ToLower(), out int columnNumber))
+    //     {
+    //         var cellValue = worksheet.Cells[row, columnNumber].Value?.ToString();
+    //         if (string.IsNullOrEmpty(cellValue))
+    //         {
+    //             throw new ArgumentException($"The cell at row {row} and column {columnName} is empty");
+    //         }
 
-            if (Enum.TryParse(cellValue, true, out TEnum result))
-            {
-                return result;
-            }
-            else
-            {
-                throw new ArgumentException($"The value '{cellValue} in row {row} column {columnName} is not valid.");
-            }
-        }
-        throw new KeyNotFoundException($"The column '{columnName}' does not existing in the header mapping");
-    }
+    //         if (Enum.TryParse(cellValue, true, out TEnum result))
+    //         {
+    //             return result;
+    //         }
+    //         else
+    //         {
+    //             throw new ArgumentException($"The value '{cellValue} in row {row} column {columnName} is not valid.");
+    //         }
+    //     }
+    //     throw new KeyNotFoundException($"The column '{columnName}' does not existing in the header mapping");
+    // }
 
     public Rank GetRankColumnValue(int row, string columnName)
     {

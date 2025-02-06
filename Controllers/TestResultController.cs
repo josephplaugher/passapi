@@ -23,15 +23,14 @@ public class TestResultController : ControllerBase
     [HttpGet]
     public async Task<List<TestResult>> GetTestResults()
     {
-        return await _context.TestResults.ToListAsync();
-        // return Ok();
+        return await _context.TestResults.OrderBy(x => x.CustomerId).ThenBy(x => x.TestId).ToListAsync();
     }
 
     // GET: api/TestResults/{id}
     [HttpGet("{id}")]
-    public async Task<ActionResult<TestResult>> GetTestResult(Guid id)
+    public async Task<ActionResult<List<TestResult>>> GetTestResult(int id)
     {
-        TestResult? TestResult = await _context.TestResults.FindAsync(id);
+        List<TestResult> TestResult = await _context.TestResults.Where(x => x.TestId == id).ToListAsync();
 
         if (TestResult == null)
         {
@@ -43,10 +42,9 @@ public class TestResultController : ControllerBase
 
     // POST: api/TestResults
     [HttpPost]
-    public async Task<ActionResult<JsonResult>> CreateTestResult(IFormFile file) 
+    public async Task<JsonResult> CreateTestResult(IFormFile file) 
     {
-        await _uploadService.Upload(file);
-        return Ok();
+        return await _uploadService.Upload(file);
     }
 
     // PATCH: api/TestResults/{id}
